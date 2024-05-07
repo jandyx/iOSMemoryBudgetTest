@@ -138,6 +138,11 @@
 			attributes = {
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Jan Ilavsky";
+				TargetAttributes = {
+					55F58DB4164838D4008566AE = {
+						DevelopmentTeam = B4UAHZK839;
+					};
+				};
 			};
 			buildConfigurationList = 55F58DAF164838D4008566AE /* Build configuration list for PBXProject "MemoryTest" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -261,10 +266,12 @@
 		55F58DDD164838D5008566AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = B4UAHZK839;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MemoryTest/MemoryTest-Prefix.pch";
 				INFOPLIST_FILE = "MemoryTest/MemoryTest-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jandyx.testMemory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -273,10 +280,12 @@
 		55F58DDE164838D5008566AE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = B4UAHZK839;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MemoryTest/MemoryTest-Prefix.pch";
 				INFOPLIST_FILE = "MemoryTest/MemoryTest-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jandyx.testMemory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

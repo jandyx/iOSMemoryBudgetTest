@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <sys/types.h>
 #import <sys/sysctl.h>
+#import <sys/utsname.h>
 
 #define CRASH_MEMORY_FILE_NAME @"CrashMemory.dat"
 #define MEMORY_WARNINGS_FILE_NAME @"MemoryWarnings.dat"
@@ -35,6 +36,7 @@
 @property (weak, nonatomic) IBOutlet UIView *kernelMemoryBar;
 @property (weak, nonatomic) IBOutlet UILabel *userMemoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalMemoryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *deviceLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 
 @end
@@ -67,6 +69,19 @@
     rect.size.height = roundf(self.progressBarBG.bounds.size.height * (allocatedMB / (float)physicalMemorySizeMB));
     rect.origin.y = self.progressBarBG.bounds.size.height - rect.size.height;
     self.alocatedMemoryBar.frame = rect;
+    
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+    NSString *osVersion = UIDevice.currentDevice.systemVersion;
+    
+    self.deviceLabel.text = [NSString stringWithFormat: @"%@, %@", platform, osVersion];
+    [self.deviceLabel sizeToFit];
+    CGRect deviceLabelRect;
+    deviceLabelRect.size = self.deviceLabel.frame.size;
+    deviceLabelRect.origin.x = self.view.frame.size.width / 2 - self.deviceLabel.frame.size.width / 2;
+    deviceLabelRect.origin.y = self.startButton.frame.origin.y + 35;
+    self.deviceLabel.frame = deviceLabelRect;
 }
 
 - (void)refreshMemoryInfo {
